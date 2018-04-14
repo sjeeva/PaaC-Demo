@@ -1,21 +1,16 @@
-node () {
-  stage 'SCM Checkout'
-  checkout scm
-  
-  stage 'Docker image build'
-  sh 'echo docker version'
-  
-   
-  stage 'Another step'
-  sh 'echo docker version'
-  
-  stage 'Docker image push'
-  parallel 'branch1' : {
-    sh "echo docker info"
-  }, 'branch2' : {
-    sh "echo branch 2"
-  }
-
-  stage 'Launch docker container'
-  echo "placeholder for launch docker container"
+pipeline {
+    agent any
+    stages {
+        stage("stage 1") {
+            steps {
+                echo "stage 1"
+            }
+        }
+        
+        stage("stage 2") {
+            steps {
+                echo "stage 1"
+            }
+        }
+    }
 }
